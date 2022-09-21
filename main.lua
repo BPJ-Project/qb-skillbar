@@ -1,16 +1,6 @@
-QBCore = nil
+local QBCore = exports['qb-core']:GetCoreObject()
 Skillbar = {}
 Skillbar.Data = {}
-
-Citizen.CreateThread(function()
-    while true do
-        Citizen.Wait(10)
-        if QBCore == nil then
-            TriggerEvent('QBCore:GetObject', function(obj) QBCore = obj end)
-            Citizen.Wait(200)
-        end
-    end
-end)
 
 Skillbar.Data = {
     Active = false,
@@ -73,7 +63,7 @@ Skillbar.Repeat = function(data)
     end)
 end
 
-Citizen.CreateThread(function()
+CreateThread(function()
     while true do
         if Skillbar.Data.Active then
             if IsControlJustPressed(0, Keys["E"]) then
@@ -83,7 +73,7 @@ Citizen.CreateThread(function()
                 })
             end
         end
-        Citizen.Wait(1)
+        Wait(1)
     end
 end)
 
