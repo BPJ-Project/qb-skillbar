@@ -1,2 +1,2 @@
 # qb-skillbar
- qb-skillbar for QBUS Fivem Scripts
+ qb-skillbar for QBCore
